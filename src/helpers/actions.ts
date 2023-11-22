@@ -84,11 +84,11 @@ export const clickOnElement = async (
   text: string,
   type?: string
 ): Promise<void> => {
-  const element = await Promise.race([
+  const handle = await Promise.race([
     getElementByContent(page, text, type),
     getElementByTestId(page, text),
   ]);
-  await element.click();
+  await handle.element.click();
 };
 
 export const clickOnButton = async (
